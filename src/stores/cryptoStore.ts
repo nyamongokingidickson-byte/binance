@@ -305,8 +305,8 @@ export const useCryptoStore = defineStore('crypto', () => {
 
   function toggleLiveMode() {
     liveMode.value = !liveMode.value
-    if (liveMode.value) startLiveSimulation()
-    else stopLiveSimulation()
+    if (liveMode.value) startFullLiveSimulation()
+    else stopFullLiveSimulation()
   }
 
   // Start live simulation on init
@@ -653,14 +653,6 @@ export const useCryptoStore = defineStore('crypto', () => {
   }
 
   startFullLiveSimulation()
-
-  // Patch toggleLiveMode
-  const origToggle = toggleLiveMode
-  toggleLiveMode = function() {
-    liveMode.value = !liveMode.value
-    if (liveMode.value) startFullLiveSimulation()
-    else stopFullLiveSimulation()
-  }
 
   return {
     currentUser, isLoggedIn, cryptoPairs, balances, orders,

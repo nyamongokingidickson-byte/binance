@@ -202,9 +202,9 @@ const showBulk = ref(false)
 const bulkPct = ref(5)
 
 function fmtPrice(v: number): string {
-  if (v >= 1000) return v.toLocaleString('en-US', { minFraction: 2, maxFraction: 2 })
-  if (v >= 1) return v.toLocaleString('en-US', { minFraction: 2, maxFraction: 4 })
-  return v.toLocaleString('en-US', { minFraction: 4, maxFraction: 6 })
+  if (v >= 1000) return v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+  if (v >= 1) return v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 })
+  return v.toLocaleString('en-US', { minimumFractionDigits: 4, maximumFractionDigits: 6 })
 }
 
 function onEditPrice(id: string, val: string) {
